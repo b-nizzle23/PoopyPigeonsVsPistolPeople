@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI textMesh;
     public void RoomCode(string roomCode) 
     {
-        textMesh.text = roomCode;
+        textMesh.text = "Room Code : " + roomCode;
     }
 
     /*
