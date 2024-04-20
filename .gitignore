@@ -8,11 +8,13 @@
 [Oo]bj/
 [Tt]emp/
 [Uu]nityGenerated/
-[Ll]ogs/
 # file on crash reports
 sysinfo.txt
 # Unity3D generated meta files
 *.pidb.meta
+*.meta
+*.log
+
 
 ###
 # VS/MD solution and project files

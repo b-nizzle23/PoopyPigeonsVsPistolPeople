@@ -1,13 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.InteropServices;
+using TMPro;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
+
+
     public Canvas canvas;
     public GameObject nameObject;
+    public GameObject personObject;
+    public GameObject pigeonObject;
     private PlayerJoin[] playerJoins;
+
+    public Dictionary<string, GameObject> people = new();
+    public Dictionary<string, GameObject> pigeons = new();
+    public Dictionary<string, string> teams = new();
+
+    // the flipper is true for people, and false for pigeons. It flips back and forth as they join.
+    private bool joinFlipper = false;
 
     // Madder functions that you may call
     // These functions should be conditionally called based on if this is inside a WebGL build, not the editor
@@ -22,80 +33,81 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        playerJoins = new PlayerJoin[0];
+        PlayerJoin playerJoin = new() {
+            name = "Player 0",
+            stats = new GameStats()
+        };
+        string jsonPlayerJoin = JsonUtility.ToJson(playerJoin);
+        PlayerJoined(jsonPlayerJoin);
     }
 
     void Update()
     {
-        // Testing Madder functions
-        // TODO: This code should be commented out or removed before submission
+        //// Testing Madder functions
+        //// TODO: This code should be commented out or removed before submission
 
-        // Test RoomCode
-        // TODO: Any of the following code may be modified or deleted
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RoomCode("ABCD");
-        }
+        //// Test RoomCode
+        //// TODO: Any of the following code may be modified or deleted
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    RoomCode("ABCD");
+        //}
 
         // Test PlayerJoined
         // TODO: Any of the following code may be modified or deleted
-        if (Input.GetKeyDown(KeyCode.J))
+        // if (Input.GetKeyDown(KeyCode.J))
+        // {
+          
+        // }
+
+        //// Test PlayerLeft
+        //// TODO: Any of the following code may be modified or deleted
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    if (playerJoins.Length == 0)
+        //    {
+        //        return;
+        //    }
+        //    PlayerLeft("Player 0");
+        //}
+
+        //// Test PlayerControllerState for Player 0
+        //// TODO: Any of the following code may be modified or deleted
+        if (false)
         {
-            PlayerJoin playerJoin = new PlayerJoin();
-            playerJoin.name = "Player " + playerJoins.Length;
-            playerJoin.stats = new GameStats();
-            string jsonPlayerJoin = JsonUtility.ToJson(playerJoin);
-            PlayerJoined(jsonPlayerJoin);
+           Joystick joystick = new Joystick(0, 0);
+           if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
+           {
+               joystick.y = 100;
+           }
+           if (Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))
+           {
+               joystick.y = -100;
+           }
+           if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+           {
+               joystick.x = -100;
+           }
+           if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+           {
+               joystick.x = 100;
+           }
+           ControllerState controllerState = new ControllerState();
+           controllerState.name = "Player 0";
+           controllerState.joystick = joystick;
+           controllerState.circle = false;
+           controllerState.triangle = false;
+           controllerState.plus = false;
+           string jsonControllerState = JsonUtility.ToJson(controllerState);
+           PlayerControllerState(jsonControllerState);
         }
 
-        // Test PlayerLeft
-        // TODO: Any of the following code may be modified or deleted
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            if (playerJoins.Length == 0)
-            {
-                return;
-            }
-            PlayerLeft("Player 0");
-        }
-
-        // Test PlayerControllerState for Player 0
-        // TODO: Any of the following code may be modified or deleted
-        if (playerJoins.Length > 0)
-        {
-            Joystick joystick = new Joystick(0, 0);
-            if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
-            {
-                joystick.y = 100;
-            }
-            if (Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))
-            {
-                joystick.y = -100;
-            }
-            if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
-            {
-                joystick.x = -100;
-            }
-            if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
-            {
-                joystick.x = 100;
-            }
-            ControllerState controllerState = new ControllerState();
-            controllerState.name = playerJoins[0].name;
-            controllerState.joystick = joystick;
-            controllerState.circle = false;
-            controllerState.triangle = false;
-            controllerState.plus = false;
-            string jsonControllerState = JsonUtility.ToJson(controllerState);
-            PlayerControllerState(jsonControllerState);
-        }
-
-        // Test HandleExit
-        // TODO: Any of the following code may be modified or deleted
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            HandleExit();
-        }
+        //// Test HandleExit
+        //// TODO: Any of the following code may be modified or deleted
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    HandleExit();
+        //}
     }
 
     // TODO: The following function may be modified or deleted
@@ -116,10 +128,10 @@ public class GameManager : MonoBehaviour
     * This function is called when the uniquely generated code is received from the server
     * You will typically use this code to display the room code on the screen
     */
+    public TextMeshProUGUI textMesh;
     public void RoomCode(string roomCode) 
     {
-        // TODO: Any of the following code may be modified or deleted
-        Debug.Log("Room Code: " + roomCode);
+        textMesh.text = roomCode;
     }
 
     /*
@@ -147,26 +159,27 @@ public class GameManager : MonoBehaviour
         }
 
         // Create player name on canvas
-        GameObject name = Instantiate(nameObject, canvas.transform);
-        name.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
-        name.GetComponent<NameScript>().SetName(playerJoin.name);
+        
         
         // Add player to playerJoins array
-        PlayerJoin[] newPlayerJoins = new PlayerJoin[playerJoins.Length + 1];
-        for (int i = 0; i < playerJoins.Length; i++)
-        {
-            newPlayerJoins[i] = playerJoins[i];
+        if (joinFlipper) {
+            GameObject person = Instantiate(personObject, canvas.transform);
+            people.Add(playerJoin.name, person);
+            teams.Add(playerJoin.name, "person");
+        } else {
+            GameObject pigeon = Instantiate(pigeonObject, canvas.transform);
+            pigeons.Add(playerJoin.name, pigeon);
+            teams.Add(playerJoin.name, "pigeon");
         }
-        newPlayerJoins[playerJoins.Length] = playerJoin;
-        playerJoins = newPlayerJoins;
-
+        joinFlipper = !joinFlipper;
+        
         // Add game played to player stats
-        playerJoin.stats.addGamePlayed();
+        // playerJoin.stats.addGamePlayed();
         // Update player stats on server
-        #if UNITY_WEBGL && !UNITY_EDITOR // Only call this function if this is a WebGL build
-        string jsonStats = JsonUtility.ToJson(playerJoin.stats);
-        UpdateStats(playerJoin.name, jsonStats);
-        #endif
+        // #if UNITY_WEBGL && !UNITY_EDITOR // Only call this function if this is a WebGL build
+        // string jsonStats = JsonUtility.ToJson(playerJoin.stats);
+        // UpdateStats(playerJoin.name, jsonStats);
+        // #endif
     }
 
     /*
@@ -221,18 +234,23 @@ public class GameManager : MonoBehaviour
     */
     public void PlayerControllerState(string jsonControllerState)
     {
+
         // Destructure jsonControllerState
         ControllerState controllerState = JsonUtility.FromJson<ControllerState>(jsonControllerState);
         // TODO: Any of the following code may be modified or deleted
 
         // Move player based on joystick
-        foreach (Transform child in canvas.transform)
-        {
-            if (child.GetComponent<NameScript>().GetName() == controllerState.name)
-            {
-                child.GetComponent<NameScript>().UpdateXY(controllerState.joystick.x, controllerState.joystick.y);
-            }
+        // foreach (Transform child in canvas.transform)
+        // {
+        //     if (child.GetComponent<NameScript>().GetName() == controllerState.name)
+        //     {
+        if (teams[controllerState.name] == "person") {
+            people[controllerState.name].GetComponent<PersonScript>().passController(controllerState);
+        } else {
+            pigeons[controllerState.name].GetComponent<PigeonScript>().passController(controllerState);
         }
+        //     }
+        // }
     }
 
     /*
