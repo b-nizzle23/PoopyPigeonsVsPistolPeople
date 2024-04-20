@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public Dictionary<string, string> teams = new();
 
     // the flipper is true for people, and false for pigeons. It flips back and forth as they join.
-    private bool joinFlipper = false;
+    private bool joinFlipper = true;
 
     // Madder functions that you may call
     // These functions should be conditionally called based on if this is inside a WebGL build, not the editor
@@ -33,12 +33,12 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        PlayerJoin playerJoin = new() {
-            name = "Player 0",
-            stats = new GameStats()
-        };
-        string jsonPlayerJoin = JsonUtility.ToJson(playerJoin);
-        PlayerJoined(jsonPlayerJoin);
+        // PlayerJoin playerJoin = new() {
+        //     name = "Player 0",
+        //     stats = new GameStats()
+        // };
+        // string jsonPlayerJoin = JsonUtility.ToJson(playerJoin);
+        // PlayerJoined(jsonPlayerJoin);
     }
 
     void Update()
@@ -73,34 +73,33 @@ public class GameManager : MonoBehaviour
 
         //// Test PlayerControllerState for Player 0
         //// TODO: Any of the following code may be modified or deleted
-        if (false)
-        {
-           Joystick joystick = new Joystick(0, 0);
-           if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
-           {
-               joystick.y = 100;
-           }
-           if (Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))
-           {
-               joystick.y = -100;
-           }
-           if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
-           {
-               joystick.x = -100;
-           }
-           if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
-           {
-               joystick.x = 100;
-           }
-           ControllerState controllerState = new ControllerState();
-           controllerState.name = "Player 0";
-           controllerState.joystick = joystick;
-           controllerState.circle = false;
-           controllerState.triangle = false;
-           controllerState.plus = false;
-           string jsonControllerState = JsonUtility.ToJson(controllerState);
-           PlayerControllerState(jsonControllerState);
-        }
+        // if (false) {
+        //    Joystick joystick = new Joystick(0, 0);
+        //    if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
+        //    {
+        //        joystick.y = 100;
+        //    }
+        //    if (Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))
+        //    {
+        //        joystick.y = -100;
+        //    }
+        //    if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        //    {
+        //        joystick.x = -100;
+        //    }
+        //    if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+        //    {
+        //        joystick.x = 100;
+        //    }
+        //    ControllerState controllerState = new ControllerState();
+        //    controllerState.name = "Player 0";
+        //    controllerState.joystick = joystick;
+        //    controllerState.circle = false;
+        //    controllerState.triangle = false;
+        //    controllerState.plus = false;
+        //    string jsonControllerState = JsonUtility.ToJson(controllerState);
+        //    PlayerControllerState(jsonControllerState);
+        // }
 
         //// Test HandleExit
         //// TODO: Any of the following code may be modified or deleted
@@ -149,25 +148,25 @@ public class GameManager : MonoBehaviour
         // TODO: Any of the following code may be modified or deleted
 
         // Initialize player stats if they are null or have missing fields
-        if (playerJoin.stats == null)
-        {
-            playerJoin.stats = new GameStats();
-        }
-        if (playerJoin.stats.gamesPlayed == null)
-        {
-            playerJoin.stats.gamesPlayed = new Stat("Games Played", 0);
-        }
+        // if (playerJoin.stats == null)
+        // {
+        //     playerJoin.stats = new GameStats();
+        // }
+        // if (playerJoin.stats.gamesPlayed == null)
+        // {
+        //     playerJoin.stats.gamesPlayed = new Stat("Games Played", 0);
+        // }
 
         // Create player name on canvas
         
         
         // Add player to playerJoins array
         if (joinFlipper) {
-            GameObject person = Instantiate(personObject, canvas.transform);
+            GameObject person = Instantiate(personObject, new Vector3(500, 0, 0), Quaternion.identity);
             people.Add(playerJoin.name, person);
             teams.Add(playerJoin.name, "person");
         } else {
-            GameObject pigeon = Instantiate(pigeonObject, canvas.transform);
+            GameObject pigeon = Instantiate(pigeonObject, new Vector3(500, 0, 0), Quaternion.identity);
             pigeons.Add(playerJoin.name, pigeon);
             teams.Add(playerJoin.name, "pigeon");
         }
@@ -247,7 +246,10 @@ public class GameManager : MonoBehaviour
         if (teams[controllerState.name] == "person") {
             people[controllerState.name].GetComponent<PersonScript>().passController(controllerState);
         } else {
-            pigeons[controllerState.name].GetComponent<PigeonScript>().passController(controllerState);
+            GameObject p = pigeons[controllerState.name];
+
+            PigeonScript script = p.GetComponent<PigeonScript>();
+            script.passController(controllerState);
         }
         //     }
         // }
