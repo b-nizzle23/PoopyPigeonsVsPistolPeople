@@ -286,3 +286,27 @@ Received Import Request.
 Start importing Assets/g-left-up.png using Guid(ee1cfa791f9d00746b8f9aeaaa4ffb4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37cb4bfcaea1723828a48b3862dce55a') in 0.049140 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 348.506313 seconds.
+  path: Assets/p-left.png
+  artifactKey: Guid(cc0276d76ec6f4743850bcb12300de6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/p-left.png using Guid(cc0276d76ec6f4743850bcb12300de6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36394805d92e0d6cd7b4bd759ff4a2e3') in 0.032904 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 48.795201 seconds.
+  path: Assets/r-left-down.png
+  artifactKey: Guid(3d6da21be1d880d4188939df23d63c79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/r-left-down.png using Guid(3d6da21be1d880d4188939df23d63c79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '311371db048e40a20485a7999556bbc3') in 0.039637 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/r-right-down.png
+  artifactKey: Guid(fba17fe1d10a48c4f9b3d48decc095bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/r-right-down.png using Guid(fba17fe1d10a48c4f9b3d48decc095bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4288314276149f5857cd6087b5c5bf92') in 0.125304 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
