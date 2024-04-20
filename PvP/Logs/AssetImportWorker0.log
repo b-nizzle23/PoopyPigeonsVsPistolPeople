@@ -310,3 +310,99 @@ Received Import Request.
 Start importing Assets/r-right-down.png using Guid(fba17fe1d10a48c4f9b3d48decc095bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4288314276149f5857cd6087b5c5bf92') in 0.125304 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 973.981884 seconds.
+  path: Assets/b-left.png
+  artifactKey: Guid(4389a542e041f6240b5ce433f66ddf94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/b-left.png using Guid(4389a542e041f6240b5ce433f66ddf94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c40a2319d11d645996945282a697e1ba') in 0.041969 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/g-left-shoot.png
+  artifactKey: Guid(4687cde6e6a0c38438946923a08666fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/g-left-shoot.png using Guid(4687cde6e6a0c38438946923a08666fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c8c1be74476651d16ac5836d27b2910') in 0.039915 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000108 seconds.
+  path: Assets/g-right-up.png
+  artifactKey: Guid(e349783adc335f74995640118d8746c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/g-right-up.png using Guid(e349783adc335f74995640118d8746c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f641f90140e62959acb450a03d50451') in 0.035921 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/g-left-down.png
+  artifactKey: Guid(1e9b1175e2611874aa1c221d03377fd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/g-left-down.png using Guid(1e9b1175e2611874aa1c221d03377fd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95f74269e54ad032e75f5997795fa2dd') in 0.167377 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/m-left-down.png
+  artifactKey: Guid(7e279c15ee2e51d44ab516b3a2bb4a27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/m-left-down.png using Guid(7e279c15ee2e51d44ab516b3a2bb4a27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f51458bc84a86885d093cd7f93e961bf') in 0.069197 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000592 seconds.
+  path: Assets/m-left-up.png
+  artifactKey: Guid(c041d4a570a29c04c9a7f2bd9dc591fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/m-left-up.png using Guid(c041d4a570a29c04c9a7f2bd9dc591fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '041f5d3d7c8365eb7694b6c39c2dc877') in 0.040872 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/p-left-shoot.png
+  artifactKey: Guid(a5bd0f19557efa343b2f4d8d49af0b06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/p-left-shoot.png using Guid(a5bd0f19557efa343b2f4d8d49af0b06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1318f12f4da877e42f30ae8098eed552') in 0.044331 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/g-left-up.png
+  artifactKey: Guid(ee1cfa791f9d00746b8f9aeaaa4ffb4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/g-left-up.png using Guid(ee1cfa791f9d00746b8f9aeaaa4ffb4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51a1a209aa82bbf44431f700bac78f4c') in 0.051450 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 2.002738 seconds.
+  path: Assets/p-right.png
+  artifactKey: Guid(379d08784d12b04409ecae6dfa201680) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/p-right.png using Guid(379d08784d12b04409ecae6dfa201680) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46315ed812573127941c329967451e39') in 0.052126 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000074 seconds.
+  path: Assets/r-right-up.png
+  artifactKey: Guid(c78767cfe661e5d428e8f56f7b252adb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/r-right-up.png using Guid(c78767cfe661e5d428e8f56f7b252adb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c85be95acaddfee572626f12837a6e4') in 0.027904 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/r-left-up.png
+  artifactKey: Guid(5f067108a531d5344a63379bbfcb3116) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/r-left-up.png using Guid(5f067108a531d5344a63379bbfcb3116) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '816c1dfb09268d7392c41258f88814a9') in 0.022428 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 2958.748837 seconds.
+  path: Assets/bg1.png
+  artifactKey: Guid(4eb18eab0ed033c42a627ea41946f372) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/bg1.png using Guid(4eb18eab0ed033c42a627ea41946f372) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ac33f435facf3e0f6ac8f0d7fe6a85b') in 0.040209 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
